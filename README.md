@@ -112,6 +112,82 @@ See [NathanMaine/memoriant-ops-bot](https://github.com/NathanMaine/memoriant-ops
 - Maintain isolated conversation contexts for different projects
 - Monitor agent health across a multi-machine setup
 
+## Using the Actual Tool
+
+The full source code for MOPS (the working Telegram/Matrix bot) from [NathanMaine/memoriant-ops-bot](https://github.com/NathanMaine/memoriant-ops-bot) is bundled in `src/`. The bot is a production Python package (v0.15.1) published to PyPI.
+
+### Install
+
+The easiest install path is via pipx (recommended):
+
+```bash
+pipx install memoriant-ops-bot
+```
+
+Or install from the bundled source:
+
+```bash
+cd src
+pip install -e .
+```
+
+### Set Up a Telegram Bot
+
+1. Message [@BotFather](https://t.me/BotFather) on Telegram
+2. Run `/newbot` and follow the prompts
+3. Copy the bot token BotFather gives you
+
+### Configure MOPS
+
+```bash
+cp src/config.example.json ~/.mops/config.json
+# Edit ~/.mops/config.json and add your Telegram bot token
+```
+
+Or just run `mops` and the onboarding wizard will walk you through it interactively.
+
+### Run
+
+```bash
+mops
+```
+
+The onboarding wizard configures:
+- Transport: Telegram (token) or Matrix (homeserver + credentials)
+- Timezone
+- Optional Docker sandbox for code execution
+- Background service installation (launchd on macOS, systemd on Linux)
+
+### Install an AI CLI to Control
+
+```bash
+# Pick one or more providers:
+npm install -g @anthropic-ai/claude-code && claude auth     # Claude Code
+npm install -g @openai/codex && codex auth                  # OpenAI Codex
+npm install -g @google/gemini-cli                           # Google Gemini
+```
+
+### What the Bot Does
+
+Once running, MOPS bridges your Telegram/Matrix messages to whichever AI CLI you have installed. You send a message from your phone — MOPS passes it to `claude`, `codex`, or `gemini` as a subprocess and streams the response back. No API spoofing. No SDK patches. Your subscriptions, your machine, your data.
+
+- **This Claude Code skill** teaches the AI how to manage MOPS agents programmatically
+- **The bot in `src/`** is the actual daemon that runs on your machine and handles real Telegram messages
+
+Works with Claude Code, OpenAI Codex CLI, and Google Gemini CLI.
+
+### Tests
+
+```bash
+cd src
+pip install -e ".[test]"
+pytest
+```
+
+### Full Documentation
+
+See the [memoriant-ops-bot repo](https://github.com/NathanMaine/memoriant-ops-bot) for the complete setup guide, architecture docs, Dockerfile, Matrix setup, and more.
+
 ## Source Repository
 
 Built from [NathanMaine/memoriant-ops-bot](https://github.com/NathanMaine/memoriant-ops-bot).
