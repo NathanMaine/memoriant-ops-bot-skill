@@ -1,0 +1,15 @@
+{
+  "name": "memoriant-ops-bot-skill",
+  "version": "1.0.0",
+  "description": "Remote AI agent management via Telegram and Matrix. Control Claude Code, Codex, and Gemini CLI from any device. Multi-provider, multi-session, background tasks, and agent health monitoring. 4 skills + 2 specialized agents.",
+  "author": {
+    "name": "Nathan Maine",
+    "url": "https://github.com/NathanMaine"
+  },
+  "homepage": "https://github.com/NathanMaine/memoriant-ops-bot",
+  "repository": "https://github.com/NathanMaine/memoriant-ops-bot-skill",
+  "license": "MIT",
+  "keywords": ["ops", "remote-agent", "telegram", "matrix", "claude-code", "codex", "gemini", "multi-provider", "memoriant"],
+  "skills": "./skills/",
+  "agents": "./agents/"
+}

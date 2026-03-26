@@ -1,0 +1,23 @@
+{
+  "name": "memoriant-ops-bot-skill",
+  "description": "Remote AI agent management via Telegram and Matrix. Control Claude Code, Codex, and Gemini CLI from any device with multi-provider support, background tasks, and session management.",
+  "version": "1.0.0",
+  "skills": [
+    {
+      "name": "manage-agents",
+      "path": "skills/manage-agents/SKILL.md"
+    },
+    {
+      "name": "send-remote-command",
+      "path": "skills/send-remote-command/SKILL.md"
+    },
+    {
+      "name": "check-status",
+      "path": "skills/check-status/SKILL.md"
+    },
+    {
+      "name": "manage-sessions",
+      "path": "skills/manage-sessions/SKILL.md"
+    }
+  ]
+}
